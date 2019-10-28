@@ -67,3 +67,4 @@ gem "rolify", "~> 5.2"
 
 gem 'cloudinary'
 gem 'activestorage-cloudinary-service'
+gem "bulma-rails", "~> 0.7.5"

@@ -2,7 +2,6 @@
   "name": "shopper",
   "private": true,
   "dependencies": {
-    "bulma": "^0.8.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -24,6 +23,5 @@
   },
   "homepage": "https://github.com/reneenilsen/shopper#readme",
   "devDependencies": {
-    "bulma": "^0.8.0"
   }
 }
