@@ -54,7 +54,8 @@
       <i class="fas fa-shopping-cart"></i>
       <% if user_signed_in? && current_user.cart %>
       <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
-      <%= @cart.cart_products.count %>
+      <!-- show the number of items in the cart -->
+      (<%= current_user.cart.cart_products.count %>)
       <% elsif %>
       <%= link_to "Shopping Cart", carts_path %>
       <% end %>

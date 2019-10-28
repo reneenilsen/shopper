@@ -6,7 +6,7 @@ class Cart < ApplicationRecord
     def add_product(product)    
       current_item = self.cart_products.where(product_id: product.id)
      ########## take 1 from the stock quantity
-     ########## @products(current_item).decrement(:quantity)
+     ########## @product(current_item).decrement(:quantity)
 
       if !current_item.empty?
         current_item[0].increment(:quantity).save

@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.image.attach(product_params[:image])
 
-    # add the current users id to the product they have created
+    # add the current user to the product they have created
     @product.user = current_user
     
     if user_signed_in? && current_user.has_role?(:admin) 
