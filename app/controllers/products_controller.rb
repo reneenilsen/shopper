@@ -20,9 +20,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.image.attach(product_params[:image])
-    @product.user_id = current_user
+    @product.user_id = current_user 
     
-    if user_signed_in? && current_user.has_role?(:admin)
+    if user_signed_in? && current_user.has_role?(:admin) 
       @product.condition = "New"
     elsif
       @product.condition = "Pre-owned"
