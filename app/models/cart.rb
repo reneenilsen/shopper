@@ -15,5 +15,17 @@ class Cart < ApplicationRecord
         self.cart_products << CartProduct.new({ product: current_item, quantity: 1 })
       end
     end
+
+    def total_price
+      cart_products.to_a.sum{|item| item.total_price}
+    end
+
+    # def total_price
+    #   product.price.to_i * quantity.to_i
+    # end
+
+    def total_quantity
+      cart_products.sum(:quantity)
+    end
     
 end

@@ -24,13 +24,10 @@
         <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-
-    <% @cart.cart_products.each do |item| product = item.product  %>
     <tr>
-        <td><strong>Total</strong></td>
-        <td><%= product.price * item.quantity %></td>
-      </tr>
-    <% end %>
+      <td>Total</td>
+      <td><%= @cart.total_price %></td>
+    </tr>
   </tbody>
 </table>
 
