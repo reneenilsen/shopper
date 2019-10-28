@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/reneenilsen/shopper/issues"
   },
-  "homepage": "https://github.com/reneenilsen/shopper#readme"
+  "homepage": "https://github.com/reneenilsen/shopper#readme",
+  "devDependencies": {
+    "bulma": "^0.8.0"
+  }
 }
