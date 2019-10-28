@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shopper</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Geeky Exchange</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://kit.fontawesome.com/7f842ba986.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
+<body>
+  <nav class="level section container">
+    <p class="level-item is-size-1">
+      <%= link_to 'Geeky Exchange', products_path %>
+    </p>
+  </nav>
+
+  <nav class="level container">
+    <p class="level-item is-size-3">
+      <%= link_to 'Home', products_path %>
+    </p>
+
+    <p class="level-item is-size-3">
+      <% if user_signed_in? && current_user.has_role?(:admin) %>
+      <%= link_to 'Add New Product', new_product_path %>
+      <% elsif user_signed_in? && current_user.has_role?(:user) %>
+      <%= link_to 'Add Pre-owned Product', new_product_path %>
+      <% elsif %>
+      <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </p>
+
+    <p class="level-item is-size-3">
+      <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+      <% elsif %>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+    </p>
+
+  </nav>
+
+  <section class="container level">
+    <p>
+      <% if user_signed_in? %>
+      <p class="level-item is-size-5">Welcome, signed in as <%= current_user.email %>! </p>
+      <% end %>
+    </p>
+
+    <p class="level-item is-size-5">
+      <i class="fas fa-shopping-cart"></i>
+      <% if user_signed_in? && current_user.cart %>
+      <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
+      <%= @cart.cart_products.count %>
+      <% elsif %>
+      <%= link_to "Shopping Cart", carts_path %>
+      <% end %>
+    </p>
+  </section>
+
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
-  </body>
+  </div>
+
+
+</body>
+
 </html>

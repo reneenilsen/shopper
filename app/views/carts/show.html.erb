@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class='title'>Your Shopping Cart</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.cart_products.each do |item| product = item.product  %>
+      <tr>
+        <td class='image is-128x128'><%= link_to product.image.attached? ? image_tag(product.image, height: 20) : '', product %> </td>
+        <td><%= product.title %></td>
+        <td><%= product.price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= product.price * item.quantity %></td>
+        <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+    <% @cart.cart_products.each do |item| product = item.product  %>
+    <tr>
+        <td><strong>Total</strong></td>
+        <td><%= product.price * item.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to 'Empty Cart', @cart_product, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
+<!-- empty cart is not clearing the cart -->
+
+<%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %>
