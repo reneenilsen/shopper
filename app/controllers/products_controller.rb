@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authorise, only: [:edit, :update, :destroy]
-  before_action :authenticate_user! #, except: [:index, :show]
+  before_action :authenticate_user! # , except: [:index, :show]
   
   def index
     @products = Product.all
@@ -20,7 +20,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.image.attach(product_params[:image])
-    @product.user_id = current_user 
+
+    # add the current users id to the product they have created
+    @product.user = current_user
     
     if user_signed_in? && current_user.has_role?(:admin) 
       @product.condition = "New"

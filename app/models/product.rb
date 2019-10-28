@@ -5,10 +5,7 @@ has_one_attached :image
 has_many :cart_products
 has_many :carts, through: :cart_products
 
-  # def can_edit?(user)
-  #   return user #.has_role?(:admin)
-  # end
-
+  # check if current user is the owner of the product or the admin
   def can_edit?(user)
     return user == self.user || user.has_role?(:admin)
   end
@@ -20,5 +17,5 @@ has_many :carts, through: :cart_products
       errors.add(:base, 'Line items present')
       throw :abort
     end
-   end
+  end
 end
