@@ -23,7 +23,7 @@
       <td><%= product.quantity %></td>
       <td><%= link_to 'Show', product %></td>
       <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
-      <% if product.can_edit?(current_user) %>
+      <% if user_signed_in? && product.can_edit?(current_user) %>
       <td><%= link_to 'Edit', edit_product_path(product) %></td>
       <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>

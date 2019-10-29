@@ -20,10 +20,6 @@ class Cart < ApplicationRecord
       cart_products.to_a.sum{|item| item.total_price}
     end
 
-    # def total_price
-    #   product.price.to_i * quantity.to_i
-    # end
-
     def total_quantity
       cart_products.sum(:quantity)
     end
