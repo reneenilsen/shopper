@@ -20,13 +20,13 @@
         <td><%= product.title %></td>
         <td><%= product.price %></td>
         <td><%= item.quantity %></td>
-        <td><%= product.price * item.quantity %></td>
+        <td><%= number_to_currency(product.price * item.quantity) %></td>
         <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     <tr>
       <td>Total</td>
-      <td><%= @cart.total_price %></td>
+      <td><%= number_to_currency(@cart.total_price) %></td>
     </tr>
   </tbody>
 </table>

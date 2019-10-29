@@ -18,7 +18,7 @@
       <td class=''><%= link_to product.image.attached? ? image_tag(product.image, height: 20) : '', product %> </td>
       <td><%= product.title %></td>
       <td><%= product.description.first(200) %> <%= link_to '... Show More', product %></td>
-      <td><%= product.price %></td>
+      <td><%= number_to_currency(product.price) %></td>
       <td><%= product.condition %></td>
       <td><%= product.quantity %></td>
       <td><%= link_to 'Show', product %></td>

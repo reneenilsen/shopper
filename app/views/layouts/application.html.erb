@@ -12,15 +12,11 @@
 </head>
 
 <body>
-  <nav class="level section container">
-    <p class="level-item is-size-1">
-      <%= link_to 'Geeky Exchange', products_path %>
-    </p>
-  </nav>
+  <nav class="level container section ">
 
-  <nav class="level container">
-    <p class="level-item is-size-3">
-      <%= link_to 'Home', products_path %>
+    <p class="level-item is-size-1">
+      <!-- <%= link_to 'Geeky Exchange', products_path %> -->
+      <%= link_to image_tag('/logo.png'), products_path %>
     </p>
 
     <p class="level-item is-size-3">
@@ -46,20 +42,30 @@
   <section class="container level">
     <p>
       <% if user_signed_in? %>
-      <p class="level-item is-size-5">Welcome, signed in as <%= current_user.email %>! </p>
+      <!-- <i class="fas fa-user"></i> -->
+      <p class="is-size-5">Welcome, <%= current_user.email %>! </p>
       <% end %>
-    </p>
+    </p>  
 
     <p class="level-item is-size-5">
       <i class="fas fa-shopping-cart"></i>
       <% if user_signed_in? && current_user.cart %>
         <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
         (<%= current_user.cart.total_quantity %>)
-        <%= current_user.cart.total_price %>
+        <%= number_to_currency(current_user.cart.total_price) %>
       <% elsif %>
         <%= link_to "Shopping Cart", carts_path %>
       <% end %>
     </p>
+  </section>
+
+  <section class='container level'>
+    <p>
+      <%= form_tag(search_page_path, :method => "get") do %>  
+          <%= search_field_tag :search, params[:search], placeholder: "Search", class: "" %>  
+          <%= button_tag 'Search', :name => nil %>  
+      <% end %>
+    </p>  
   </section>
 
   <div class="container">

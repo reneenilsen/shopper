@@ -1,0 +1,23 @@
+<h1>Search Results</h1>
+
+<table class='table'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @results.each do |result| %>
+          <tr>
+            <td class=''><%= link_to result.image.attached? ? image_tag(result.image, height: 20) : '', result %> </td>
+            <td><%= result.title %></td>
+            <td><%= result.description.first(200) %> <%= link_to '... Show More', result %></td>
+            <td><%= number_to_currency(result.price) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
