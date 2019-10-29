@@ -37,6 +37,11 @@
       <%= form.number_field :quantity %>
     </div>
 
+    <div>
+        <%= form.label :category %>
+        <%= collection_select(:product, :category_id, Category.all, :id, :category) %>
+      </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
