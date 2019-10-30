@@ -7,24 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Category.create!(
-    category: "Sailor Moon"
-)
-
-User.create!(
+user = User.create!(
     email: "admin@admin",
     password: "123456"
 )
 
+category = user.categories.create!(
+    category: "Sailor Moon"
+)
 
 Product.destroy_all
 
-products = [
+Product.create!(
     title: "Sailor Moon - Sailor Venus S.H.Figuarts 5.5” Action Figure",
     description: "A great product",
     price: 89.99,
-    user_id: 1,
-    category_id: 1,
-]
-User.create(users)
-Product.create!(products)
+    user: user,
+    quantity: 5,
+    category: category,
+)
