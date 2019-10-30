@@ -2,6 +2,7 @@ class User < ApplicationRecord
   rolify
   after_create :assign_default_role
   has_many :products
+  has_many :categories
   has_one :cart
 
   # Include default devise modules. Others available are:

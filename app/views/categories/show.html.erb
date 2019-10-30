@@ -1,0 +1,28 @@
+<h1 class='title'><%= @category.category %></h1>
+
+<table class='table'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+        <% Product.where(category_id: @category.id).each do |product| %>
+          <tr>
+            <td class=''><%= link_to product.image.attached? ? image_tag(product.image, height: 20) : '', product %> </td>
+            <td><%= product.title %></td>
+            <td><%= product.description.first(200) %> <%= link_to '... Show More', product %></td>
+            <td><%= number_to_currency(product.price) %></td>
+            <td><%= product.condition %></td>
+            <td><%= product.quantity %></td>
+            <td><%= product.category.category %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>

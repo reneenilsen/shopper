@@ -15,6 +15,10 @@
 </p>
 
 <p>
+  Check out more <strong><%= link_to Category.find(@product.category_id).category, category_path(@product.category_id) %></strong> merch!
+</p>
+
+<p>
   <strong>Condition:</strong>
   <%= @product.condition %>
 </p>

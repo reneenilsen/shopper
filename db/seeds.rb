@@ -6,12 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+Category.create!(
+    category: "Sailor Moon"
+)
+
+User.create!(
+    email: "admin@admin",
+    password: "123456"
+)
+
+
 Product.destroy_all
 
 products = [
-    title: "First product",
+    title: "Sailor Moon - Sailor Venus S.H.Figuarts 5.5” Action Figure",
     description: "A great product",
-    price: 35
+    price: 89.99,
+    user_id: 1,
+    category_id: 1,
 ]
-
-Product.create(products)
+User.create(users)
+Product.create!(products)

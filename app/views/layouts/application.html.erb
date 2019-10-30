@@ -14,7 +14,7 @@
 <body>
   <nav class="level container is-fluid">
 
-    <p id='logo', class="level-item">
+    <p id='logo' , class="level-item">
       <%= link_to image_tag(image_path('logo.png')), products_path %>
     </p>
 
@@ -25,6 +25,12 @@
       <%= link_to 'Add Pre-owned Product', new_product_path %>
       <% elsif %>
       <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </p>
+
+    <p class='level-item is-size-3'>
+      <% if user_signed_in? && current_user.has_role?(:admin) %>
+      <%= link_to 'Add a Category', new_category_path %>
       <% end %>
     </p>
 
@@ -41,7 +47,7 @@
   <section class="container has-text-right">
 
     <p class="is-size-5">
-       <% if user_signed_in? %>
+      <% if user_signed_in? %>
       Welcome, <%= current_user.email %>!
       <% end %>
     </p>
@@ -49,19 +55,19 @@
     <p class='is-size-5'>
       <i class="fas fa-shopping-cart"></i>
       <% if user_signed_in? && current_user.cart %>
-        <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
-        (<%= current_user.cart.total_quantity %>)
-        <%= number_to_currency(current_user.cart.total_price) %>
+      <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
+      (<%= current_user.cart.total_quantity %>)
+      <%= number_to_currency(current_user.cart.total_price) %>
       <% elsif %>
-        <%= link_to "Shopping Cart", carts_path %>
+      <%= link_to "Shopping Cart", carts_path %>
       <% end %>
     </p>
     <p class='level'>
-          <%= form_tag(search_page_path, :method => "get") do %>  
-              <%= search_field_tag :search, params[:search], placeholder: "Search", class: "" %>  
-              <%= button_tag 'Search', :name => nil %>  
-          <% end %>
-        </p> 
+      <%= form_tag(search_page_path, :method => "get") do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "" %>
+      <%= button_tag 'Search', :name => nil %>
+      <% end %>
+    </p>
   </section>
 
   

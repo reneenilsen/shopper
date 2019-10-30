@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1 class='title'>All Products</h1>
 <table class='table'>
   <thead>
     <tr>
@@ -9,6 +10,7 @@
       <th>Price</th>
       <th>Condition</th>
       <th>Quantity</th>
+      <th>Fandom</th>
     </tr>
   </thead>
 
@@ -21,6 +23,7 @@
       <td><%= number_to_currency(product.price) %></td>
       <td><%= product.condition %></td>
       <td><%= product.quantity %></td>
+      <td><%= link_to Category.find(product.category_id).category, category_path(product.category_id) %></td>
       <td><%= link_to 'Show', product %></td>
       <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
       <% if user_signed_in? && product.can_edit?(current_user) %>
