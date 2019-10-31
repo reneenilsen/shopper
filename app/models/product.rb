@@ -4,7 +4,7 @@ belongs_to :user
 has_one_attached :image
 has_many :cart_products, dependent: :destroy
 has_many :carts, through: :cart_products
-before_commit :add_default_img
+# before_commit :add_default_img
 
   # check if current user is the owner of the product or the admin
   def can_edit?(user)

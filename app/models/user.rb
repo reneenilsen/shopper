@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   rolify
   after_create :assign_default_role
-  has_many :products
-  has_many :categories
-  has_one :cart
+  has_many :products, dependent: :destroy
+  has_many :categories, dependent: :destroy
+  has_one :cart, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

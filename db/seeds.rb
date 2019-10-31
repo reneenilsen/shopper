@@ -17,7 +17,8 @@ user = User.create!(
 Category.destroy_all
 
 category = Category.create!(
-    category: "Sailor Moon"
+    category: "Sailor Moon",
+    user: user
 )
 
 Product.destroy_all
