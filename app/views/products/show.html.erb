@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @product.image.attached? ? image_tag(product.image, width: 250) : '' %>
+  <%= link_to @product.image.attached? ? image_tag(@product.image, width: 250) : '' %>
 </p>
+
 
 <p class='title'>
   <!-- <strong>Title:</strong> -->
@@ -15,7 +16,9 @@
 </p>
 
 <p>
-  Check out more <strong><%= link_to Category.find(@product.category_id).category, category_path(@product.category_id) %></strong> merch!
+  Check out more
+  <strong><%= link_to Category.find(@product.category_id).category, category_path(@product.category_id) %></strong>
+  merch!
   <!-- search Category for current products id then name of the category, direct to the products category with that id -->
 </p>
 
@@ -38,26 +41,26 @@
 </p>
 
 <section class=''>
-<p>
-  <% if user_signed_in? %>
+  <p>
+    <% if user_signed_in? %>
     <% if @product.quantity >0 %>
     <%= button_to 'Add To Cart', cart_products_path(product_id: @product), class: 'button is-primary add-to-cart' %>
     <% elsif %>
     <button class="button is-danger">Sold Out</button>
     <% end %>
-  <% elsif  %>
+    <% elsif  %>
     <%= button_to 'Sign In To Add To Cart', new_user_session_path, class: 'button is-primary' %>
-  <% end %>
-</p>
+    <% end %>
+  </p>
 
-<section class=''>
-<p class='level-item'>
-  <% if user_signed_in? && @product.can_edit?(current_user) %>
-  <p class='button is-info'><%= link_to 'Edit', edit_product_path(@product) %></p>
-  <% end %>
-</p>
-<p class="button is-info">
-  <%= link_to 'Back', products_path %>
-</p>
+  <section class=''>
+    <p class='level-item'>
+      <% if user_signed_in? && @product.can_edit?(current_user) %>
+      <p class='button is-info'><%= link_to 'Edit', edit_product_path(@product) %></p>
+      <% end %>
+    </p>
+    <p class="button is-info">
+      <%= link_to 'Back', products_path %>
+    </p>
 
-</section>
+  </section>
