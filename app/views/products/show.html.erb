@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @product.image, width: 250 %>
+  <%= image_tag @product.image.attached? ? image_tag(product.image, width: 250) : '', product %>
 </p>
 
 <p class='title'>
