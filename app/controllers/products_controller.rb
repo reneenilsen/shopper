@@ -40,8 +40,10 @@ class ProductsController < ApplicationController
 
   def update
       if @product.update(product_params)
-        @product.image.attach(product_params[:image]) if product_params[:image]
-        redirect_to @product, notice: 'Product was successfully updated.'
+        if @product.image.attached?
+          @product.image.attach(product_params[:image]) if product_params[:image] 
+          redirect_to @product, notice: 'Product was successfully updated.'
+        end
       else
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
