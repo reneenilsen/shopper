@@ -52,7 +52,7 @@
       <% end %>
     </p>
 
-    <p class='is-size-5'>
+    <p class='cart'>
       <i class="fas fa-shopping-cart"></i>
       <% if user_signed_in? && current_user.cart %>
       <%= link_to "Shopping Cart", cart_path(current_user.cart) %>

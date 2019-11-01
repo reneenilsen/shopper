@@ -14,21 +14,24 @@
  *= require_self
  */
 
-
-//  nav {
-//     display: flex;
-//     // background-color: blue;
-//     height: 8rem;
-
-//     p {
-//         text-decoration: none;
-//     }
-// }
-
-section {
-  p {
-    padding: .2rem;
+tbody {
+    border: red, solid, 1px;
   }
+.cart, h1 {
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+
+  a, p {
+    text-align: center;
+  }
+
+  // thead, .hide {
+  //   visibility: hidden;
+  // }
+
 }
 
 @import 'bulma'

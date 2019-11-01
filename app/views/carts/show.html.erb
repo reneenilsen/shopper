@@ -16,12 +16,12 @@
   <tbody>
     <% @cart.cart_products.each do |item| product = item.product  %>
       <tr>
-        <td class='image is-128x128'><%= link_to product.image.attached? ? image_tag(product.image, height: 20) : '', product %> </td>
+        <td><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </td>
         <td><%= product.title %></td>
         <td><%= product.price %></td>
         <td><%= item.quantity %></td>
         <td><%= number_to_currency(product.price * item.quantity) %></td>
-        <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class=''><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     <tr>

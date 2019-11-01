@@ -1,7 +1,7 @@
 <h1 class='title'><%= @category.category %></h1>
 
-<table class='table'>
-        <thead>
+<table class=''>
+        <!-- <thead>
           <tr>
             <th>Image</th>
             <th>Title</th>
@@ -10,18 +10,17 @@
             <th>Condition</th>
             <th>Quantity</th>
           </tr>
-        </thead>
+        </thead> -->
       
-        <tbody>
+        <tbody class='level'>
         <% Product.where(category_id: @category.id).each do |product| %>
           <tr>
-            <td class=''><%= link_to product.image.attached? ? image_tag(product.image, height: 20) : '', product %> </td>
-            <td><%= product.title %></td>
-            <td><%= product.description.first(200) %> <%= link_to '... Show More', product %></td>
-            <td><%= number_to_currency(product.price) %></td>
-            <td><%= product.condition %></td>
-            <td><%= product.quantity %></td>
-            <td><%= product.category.category %></td>
+            <td class='level-item'><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </td>
+            <td class='level-item'><strong><%= product.title %></td>
+            <td class='hide'><%= product.description.first(200) %> <%= link_to '... Show More', product %></strong></td>
+            <td class='level-item'>Price: <%= number_to_currency(product.price) %></td>
+            <td class='level-item'>Condition: <%= product.condition %></td>
+            <td class='level-item'>Quantity: <%= product.quantity %></td>
           </tr>
           <% end %>
         </tbody>
