@@ -1,3 +1,32 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        .results {
+            width: 50%;
+            padding: 1rem;
+            text-align: center;
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        .results {
+            width: 100%;
+            padding: 1rem;
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+}

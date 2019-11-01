@@ -2,36 +2,23 @@
 
 <h1 class='title'>Your Shopping Cart</h1>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Total Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <section id='products'>
     <% @cart.cart_products.each do |item| product = item.product  %>
-      <tr>
-        <td><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </td>
-        <td><%= product.title %></td>
-        <td><%= product.price %></td>
-        <td><%= item.quantity %></td>
-        <td><%= number_to_currency(product.price * item.quantity) %></td>
-        <td class=''><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <ul class='shopping_cart'>
+        <li><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </li>
+        <li><%= product.title %></li>
+        <li>Price: <%= product.price %> Quantity: <%= item.quantity %> <strong>Total: <%= number_to_currency(product.price * item.quantity) %></strong></li>
+        <li></li>
+        <li></li>
+        <li class=''><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" %></li>
+      </ul>
     <% end %>
-    <tr>
-      <td>Total</td>
-      <td><%= number_to_currency(@cart.total_price) %></td>
-    </tr>
-  </tbody>
-</table>
-
-<%= button_to 'Empty Cart', @cart_product, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
-<!-- empty cart is not clearing the cart -->
-
-<%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %>
+  </section>
+  <section>
+    <ul class='shopping_cart'>
+      <li id='total'>Total: <%= number_to_currency(@cart.total_price) %></li>
+    </ul>
+</section>
+<section>
+<p id='button'><%= button_to 'Empty Cart', @cart_product, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %><%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %></p>
+</section>

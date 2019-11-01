@@ -2,7 +2,7 @@
 
 <h1 class='title' >All Products</h1>
 
-<table class='container'>
+<!-- <table class='container'> -->
   <!-- <thead>
     <tr>
       <th>Image</th>
@@ -14,26 +14,24 @@
       <th>Fandom</th>
     </tr>
   </thead> -->
-
-  <tbody class='level'>
+<div class='whole_grid'>
+  <section id='products' class=''>
     <% @products.each do |product| %>
-    <tr>
-      <td class='level-item'><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </td>
-      <td class='level-item'><strong><%= product.title %></td>
-      <td class='hide'><%= product.description.first(200) %> <%= link_to '... Show More', product %></strong></td>
-      <td class='level-item'>Price: <%= number_to_currency(product.price) %></td>
-      <td class='level-item'>Condition: <%= product.condition %></td>
-      <td class='level-item'>Quantity: <%= product.quantity %></td>
-      <td class='level-item'>Fandom: <%= link_to Category.find(product.category_id).category, category_path(product.category_id) %></td>
-      <!-- <td  class='button is-primary'><%= link_to 'Show', product %></td> -->
+    <ul class='listings'>
+      <li class=''><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 200px') : '', product %> </li>
+      <li class=''><strong><%= product.title %></li>
+      <li class=''><%= product.description.first(200) %> <%= link_to '... Show More', product %></strong></li>
+      <li class=''>Price: <%= number_to_currency(product.price) %></li>
+      <li class=''>Condition: <%= product.condition %></li>
+      <li class=''>Quantity: <%= product.quantity %></li>
+      <li class=''>Fandom: <%= link_to Category.find(product.category_id).category, category_path(product.category_id) %></li>
       <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
       <% if user_signed_in? && product.can_edit?(current_user) %>
-      <td class='button is-warning level-item'><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td class='button is-danger level-item'><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <li class='button is-primary'><%= link_to 'Edit', edit_product_path(product) %></li>
+      <li class='button is-danger'><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       <% end %>
-    </tr>
+      </ul>
     <% end %>
-  </tbody>
-</table>
-
+</section>
+</div>
 <br>

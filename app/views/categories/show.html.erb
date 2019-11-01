@@ -1,27 +1,14 @@
 <h1 class='title'><%= @category.category %></h1>
 
-<table class=''>
-        <!-- <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Condition</th>
-            <th>Quantity</th>
-          </tr>
-        </thead> -->
-      
-        <tbody class='level'>
+        <section class='products'>
         <% Product.where(category_id: @category.id).each do |product| %>
-          <tr>
-            <td class='level-item'><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </td>
-            <td class='level-item'><strong><%= product.title %></td>
-            <td class='hide'><%= product.description.first(200) %> <%= link_to '... Show More', product %></strong></td>
-            <td class='level-item'>Price: <%= number_to_currency(product.price) %></td>
-            <td class='level-item'>Condition: <%= product.condition %></td>
-            <td class='level-item'>Quantity: <%= product.quantity %></td>
-          </tr>
+          <ul class="results">
+            <li class=''><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 150px') : '', product %> </li>
+            <li class=''><strong><%= product.title %></li>
+            <li class=''><%= product.description.first(50) %> <%= link_to '... Show More', product %></strong></li>
+            <li class=''>Price: <%= number_to_currency(product.price) %></li>
+            <li class=''>Condition: <%= product.condition %></li>
+            <li class=''>Quantity: <%= product.quantity %></li>
+            </ul>
           <% end %>
-        </tbody>
-      </table>
+        </section>

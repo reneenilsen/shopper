@@ -2,3 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.whole_grid {
+    #products {
+        display: flex;
+        flex-wrap: wrap;
+        .listings {
+            max-width: 50%;
+            padding: 1rem;
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    #products {
+        display: flex;
+        flex-wrap: wrap;
+        .listings {
+            min-width: 100%;
+            padding: 1rem;
+            border: rgb(202, 200, 200) solid 1px;
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+}

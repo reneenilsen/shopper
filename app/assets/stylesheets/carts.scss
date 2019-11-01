@@ -1,0 +1,27 @@
+
+    #products {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        .shopping_cart {
+            max-width: 100%;
+            padding: 1rem;
+            // border: rgb(202, 200, 200) solid 1px;
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+
+#button {
+    padding: 0.5rem;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+
+section {
+    text-align: center;
+}
+
+}
