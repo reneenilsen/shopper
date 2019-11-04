@@ -13,14 +13,20 @@
  *= require_tree .
  *= require_self
  */
-
-
-tbody {
-    border: red, solid, 1px;
+body {
+  header {
+    background-color: lightblue;
+    padding: 1rem;
+      
   }
-.cart, h1 {
-  font-size: 1.25rem;
-  padding: 1rem;
+  #signin {
+        padding: 1rem;
+      }
+
+  .cart, h1 {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
 }
 
 @media screen and (min-width: 300px) and (max-width: 767px) {

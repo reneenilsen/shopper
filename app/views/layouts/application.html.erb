@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <header>
   <nav class="level container is-fluid">
 
     <p id='logo' , class="level-item">
@@ -34,6 +35,12 @@
       <% end %>
     </p>
 
+    <p class='level-item is-size-3'>
+        <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <%= link_to 'View Categories', categories_path %>
+        <% end %>
+      </p>
+
     <p class="level-item is-size-3">
       <% if user_signed_in? %>
       <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
@@ -43,10 +50,10 @@
     </p>
 
   </nav>
-
+</header>
   <section class="container has-text-right">
 
-    <p class="is-size-5">
+    <p id="signin" class="is-size-5">
       <% if user_signed_in? %>
       Welcome, <%= current_user.email %>!
       <% end %>

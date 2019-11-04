@@ -1,21 +1,16 @@
 <h1 class='title'>Search Results</h1>
 
-<table class='table'>
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-      
-        <tbody>
-          <% @results.each do |result| %>
-          <tr>
-            <td class=''><%= link_to result.image.attached? ? image_tag(result.image, style: 'height: 100') : '', result %> </td>
-            <td><%= result.title %></td>
-            <td><%= number_to_currency(result.price) %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <section class='products'>
+    <% @results.each do |result| %>
+    <ul class='listings'>
+      <li class=''><%= link_to result.image.attached? ? image_tag(result.image, style: 'height: 150px') : '', result %></li>
+      <li><%= result.title %></li>
+      <li><%= result.description.first(200) %><%= link_to '... Show More', result %></li>
+      <li><%= number_to_currency(result.price) %></li>
+      <% if user_signed_in? && result.can_edit?(current_user) %>
+      <li class='button is-primary'><%= link_to 'Edit', edit_product_path(result) %></li>
+      <li class='button is-danger'><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
