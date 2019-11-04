@@ -40,6 +40,12 @@ body {
   a, p, h1 {
     text-align: center;
   }
+
+  header {
+    a {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 @import 'bulma'
