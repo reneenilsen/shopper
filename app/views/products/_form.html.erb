@@ -16,7 +16,7 @@
   <%= form.text_field :title %>
 </div>
 
-<div class="field">
+<div class="field" >
   <%= form.label :description %>
   <%= form.text_area :description %>
 </div>
@@ -27,7 +27,7 @@
   <%= form.text_field :price %>
 </div>
 
-<div>
+<div class="field">
   <%= form.label :image %>
   <%= form.file_field :image %>
 </div>
@@ -37,12 +37,12 @@
   <%= form.number_field :quantity %>
 </div>
 
-<div>
+<div class="field">
   <%= form.label :category %>
   <%= collection_select(:product, :category_id, Category.all, :id, :category) %>
 </div>
 
-<div class="actions">
+<div class="actions field">
   <%= form.submit %>
 </div>
 <% end %>
