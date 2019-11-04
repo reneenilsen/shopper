@@ -15,11 +15,11 @@
   <header>
   <nav class="level container is-fluid">
 
-    <p id='logo' , class="level-item">
+    <p id='logo', class="level-item">
       <%= link_to image_tag(image_path('logo.png')), products_path %>
     </p>
 
-    <p class="level-item is-size-3">
+    <p class="level-item is-size-3" id='nav_product'>
       <% if user_signed_in? && current_user.has_role?(:admin) %>
       <%= link_to 'Add New Product', new_product_path %>
       <% elsif user_signed_in? && current_user.has_role?(:user) %>
