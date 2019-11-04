@@ -27,7 +27,7 @@
       <li class=''>Fandom: <%= link_to Category.find(product.category_id).category, category_path(product.category_id) %></li>
       <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
       <% if user_signed_in? && product.can_edit?(current_user) %>
-      <li class='button is-primary'><%= link_to 'Edit', edit_product_path(product) %></li>
+      <li class='button is-warning'><%= link_to 'Edit', edit_product_path(product) %></li>
       <li class='button is-danger'><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       <% end %>
       </ul>

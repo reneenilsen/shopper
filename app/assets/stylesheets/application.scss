@@ -27,6 +27,12 @@ body {
     font-size: 1.25rem;
     padding: 1rem;
   }
+
+  form {
+    input {
+      width: 250px;
+    }
+  }
 }
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
