@@ -97,10 +97,8 @@ The tech stack used for Geeky Exchange are:
 ![user stories](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/user_stories.png "user stories")
 
 Order of importance
-Red – High
-Yellow – Medium
-Green – Low
-Blue – Optional extras/extended features
+
+Red – High / Yellow – Medium / Green – Low / Blue – Optional extras/extended features
 
 ## Wireframes
 
@@ -214,10 +212,8 @@ After the initial task were completed the tasks were assigned an order of import
 ![user_stories](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/user_stories.png "user_stories")
 
 Order of importance
-Red – High
-Yellow – Medium
-Green – Low
-Blue – Optional extras/extended features
+
+Red – High / Yellow – Medium / Green – Low / Blue – Optional extras/extended features
 
 During and after coding was complete the various pre-coding elements were updated and changed such as the ERD and the wireframes when the project deviated slightly. Models were also updated with addition fields as needed.  
 
