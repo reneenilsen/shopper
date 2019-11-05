@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authorise, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   
   def index
     @products = Product.all
@@ -32,9 +32,9 @@ class ProductsController < ApplicationController
 
       if @product.save
         redirect_to @product, notice: 'Product was successfully created.'
-
       else
-        render json: @product.errors, status: :unprocessable_entity
+        flash[:alert] = @product.errors.full_messages.join('<br>')
+        redirect_to new_product_path
       end
   end
 
@@ -43,7 +43,8 @@ class ProductsController < ApplicationController
         @product.image.attach(product_params[:image]) if product_params[:image] 
         redirect_to @product, notice: 'Product was successfully updated.'
       else
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        flash[:alert] = @product.errors.full_messages.join('<br>')
+        redirect_to @product 
       end
   end
 

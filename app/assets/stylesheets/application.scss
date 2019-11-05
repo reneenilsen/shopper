@@ -16,7 +16,7 @@
 body {
 
   header {
-    background-color: lightblue;
+    background-color: rgb(171, 205, 219);
     padding: 1rem;
   }
 
@@ -35,10 +35,17 @@ body {
   }
 
   form {
-    input {
+    #search {
       width: 250px;
     }
   }
+
+  .footer {
+    margin-top: 1rem;
+    background-color: rgb(171,205,219);
+    padding: 1rem;
+  }
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
@@ -59,7 +66,9 @@ body {
       padding: 0 5%;
     }
 
-    
+    form {
+      text-align: center;
+    }
   }
   
 }

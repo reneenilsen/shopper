@@ -6,6 +6,9 @@ has_many :cart_products, dependent: :destroy
 has_many :carts, through: :cart_products
 # before_commit :add_default_img
 
+validates :title, :description, :category, presence: true
+validates :quantity, :price, presence: true, numericality: true
+
   # check if current user is the owner of the product or the admin
   def can_edit?(user)
     return user == self.user || user.has_role?(:admin)

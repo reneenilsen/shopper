@@ -71,7 +71,7 @@
       <%= link_to "Shopping Cart", carts_path %>
       <% end %>
     </p>
-    <p class='level'>
+    <p id='search'class='level'>
       <%= form_tag(search_page_path, :method => "get") do %>
       <%= search_field_tag :search, params[:search], placeholder: "Search Geeky Exchange" %>
       <%= button_tag 'Search', :name => nil %>
@@ -86,6 +86,27 @@
     <%= yield %>
   </div>
 
+  <footer class=' footer level'>
+    <p class='level-item'>
+      <% if user_signed_in? && current_user.has_role?(:admin) %>
+      <%= link_to 'Add New Product', new_product_path %>
+      <% elsif user_signed_in? && current_user.has_role?(:user) %>
+      <%= link_to 'Add Pre-owned Product', new_product_path %>
+      <% end %>
+</p>
+      <p class='level-item'>
+          <% if user_signed_in? && current_user.has_role?(:admin) %>
+          <%= link_to 'Add a Category', new_category_path %>
+          <% end %>
+        </p>
+    
+        <p class='level-item'>
+            <% if user_signed_in? && current_user.has_role?(:admin) %>
+            <%= link_to 'View Categories', categories_path %>
+            <% end %>
+          </p>
+
+  </footer>
 
 </body>
 
