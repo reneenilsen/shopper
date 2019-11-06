@@ -20,5 +20,7 @@
     </ul>
 </section>
 <section>
-<p id='button'><%= button_to 'Empty Cart', @cart_product, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %><%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %></p>
+<div id='button'><%= button_to 'Empty Cart', @cart_product, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %></div>
+<div id='button'><%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %></div>
+<div id='button'><%= link_to 'Check Out', products_path, class: 'button is-primary' %></div>
 </section>

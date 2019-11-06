@@ -43,22 +43,21 @@
   <p>
     <% if user_signed_in? %>
     <% if @product.quantity >0 %>
-    <%= button_to 'Add To Cart', cart_products_path(product_id: @product), class: 'button is-primary add-to-cart' %>
+    <div id="button"><%= button_to 'Add To Cart', cart_products_path(product_id: @product), class: 'button is-primary add-to-cart' %></div>
     <% elsif %>
     <button class="button is-danger">Sold Out</button>
     <% end %>
     <% elsif  %>
-    <%= button_to 'Sign In To Add To Cart', new_user_session_path, class: 'button is-primary' %>
+    <div id="button"><%= button_to 'Sign In To Add To Cart', new_user_session_path, class: 'button is-primary' %></div>
     <% end %>
   </p>
 
-  <section class=''>
-    <div class=''>
+  <section>
       <% if user_signed_in? && @product.can_edit?(current_user) %>
-      <p class='button is-warning'><%= link_to 'Edit', edit_product_path(@product) %></p>
+      <div id="button"><%= link_to 'Edit', edit_product_path(@product), class: "button is-warning" %></div>
       <% end %>
-      <p class="button is-info"><%= link_to 'Back', products_path %></p>
-    </div>
+      <div id="button"><%= link_to 'Back', products_path, class: "button is-info" %></div>
+  </section>
 
 
 

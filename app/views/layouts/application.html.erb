@@ -81,35 +81,13 @@
 </section>
 
   <div id='main' class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice.html_safe if notice %></p>
+    <p class="alert"><%= alert.html_safe if alert %></p>
     <%= yield %>
   </div>
 
   <footer id='footer'>
     <p>&copy Renee Nilsen 2019</p>
-  </footer>
-
-  <!-- <footer id='footer'class='level'>
-    <p class='level-item'>
-      <% if user_signed_in? && current_user.has_role?(:admin) %>
-      <%= link_to 'Add New Product', new_product_path %>
-      <% elsif user_signed_in? && current_user.has_role?(:user) %>
-      <%= link_to 'Add Pre-owned Product', new_product_path %>
-      <% end %>
-</p>
-      <p class='level-item'>
-          <% if user_signed_in? && current_user.has_role?(:admin) %>
-          <%= link_to 'Add a Category', new_category_path %>
-          <% end %>
-        </p>
-    
-        <p class='level-item'>
-            <% if user_signed_in? && current_user.has_role?(:admin) %>
-            <%= link_to 'View Categories', categories_path %>
-            <% end %>
-          </p> -->
-
   </footer>
 
 </body>
