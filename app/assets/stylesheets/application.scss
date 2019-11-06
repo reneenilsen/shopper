@@ -47,7 +47,6 @@ body {
   #footer {
     text-align: center;
     position: fixed;
-    // height: 50px;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -56,6 +55,10 @@ body {
       p {
         padding: 5px;
       }
+  }
+
+  section {
+    padding-bottom: 2rem;
   }
 }
 
