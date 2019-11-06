@@ -14,6 +14,7 @@
  *= require_self
  */
 body {
+
   header {
     background-color: rgb(171, 205, 219);
     padding: 1rem;
@@ -45,14 +46,15 @@ body {
 
   #footer {
     text-align: center;
-    position: relative;
-    height: 50px;
+    position: fixed;
+    // height: 50px;
     left: 0;
-    bottom: -50px;
+    bottom: 0;
     width: 100%;
     background-color: rgb(171, 205, 219);
+    margin-top: 5rem;
       p {
-        padding-top: 1rem;
+        padding: 5px;
       }
   }
 }
@@ -78,10 +80,6 @@ body {
 
     form {
       text-align: center;
-    }
-
-    #footer {
-      padding: 0.5rem;
     }
   }
   

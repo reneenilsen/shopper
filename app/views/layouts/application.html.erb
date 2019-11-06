@@ -13,72 +13,72 @@
 
 <body>
   <header>
-  <nav class="level container is-fluid">
+    <nav class="level container is-fluid">
 
-    <p id='logo', class="level-item">
-      <%= link_to image_tag(image_path('logo.png')), products_path %>
-    </p>
+      <p id='logo' , class="level-item">
+        <%= link_to image_tag(image_path('logo.png')), products_path %>
+      </p>
 
-    <p class="level-item is-size-3" id='nav_product'>
-      <% if user_signed_in? && current_user.has_role?(:admin) %>
-      <%= link_to 'Add New Product', new_product_path %>
-      <% elsif user_signed_in? && current_user.has_role?(:user) %>
-      <%= link_to 'Add Pre-owned Product', new_product_path %>
-      <% elsif %>
-      <%= link_to 'Sign In', new_user_session_path %>
-      <% end %>
-    </p>
+      <p class="level-item is-size-3" id='nav_product'>
+        <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <%= link_to 'Add New Product', new_product_path %>
+        <% elsif user_signed_in? && current_user.has_role?(:user) %>
+        <%= link_to 'Add Pre-owned Product', new_product_path %>
+        <% elsif %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <% end %>
+      </p>
 
-    <p class='level-item is-size-3'>
-      <% if user_signed_in? && current_user.has_role?(:admin) %>
-      <%= link_to 'Add a Category', new_category_path %>
-      <% end %>
-    </p>
+      <p class='level-item is-size-3'>
+        <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <%= link_to 'Add a Category', new_category_path %>
+        <% end %>
+      </p>
 
-    <p class='level-item is-size-3'>
+      <p class='level-item is-size-3'>
         <% if user_signed_in? && current_user.has_role?(:admin) %>
         <%= link_to 'View Categories', categories_path %>
         <% end %>
       </p>
 
-    <p class="level-item is-size-3">
-      <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
-      <% elsif %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
-    </p>
+      <p class="level-item is-size-3">
+        <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+        <% elsif %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+      </p>
 
-  </nav>
-</header>
+    </nav>
+  </header>
 
-<section class='welcome'>
-  <section class="container has-text-right">
+  <section class='welcome'>
+    <section class="container has-text-right">
 
-    <p id="signin" class="is-size-5">
-      <% if user_signed_in? %>
-      Welcome, <%= current_user.email %>!
-      <% end %>
-    </p>
+      <p id="signin" class="is-size-5">
+        <% if user_signed_in? %>
+        Welcome, <%= current_user.email %>!
+        <% end %>
+      </p>
 
-    <p class='cart'>
-      <i class="fas fa-shopping-cart"></i>
-      <% if user_signed_in? && current_user.cart %>
-      <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
-      (<%= current_user.cart.total_quantity %>)
-      <%= number_to_currency(current_user.cart.total_price) %>
-      <% elsif %>
-      <%= link_to "Shopping Cart", carts_path %>
-      <% end %>
-    </p>
-    <p id='search'class='level'>
-      <%= form_tag(search_page_path, :method => "get") do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Search Geeky Exchange" %>
-      <%= button_tag 'Search', :name => nil %>
-      <% end %>
-    </p>
+      <p class='cart'>
+        <i class="fas fa-shopping-cart"></i>
+        <% if user_signed_in? && current_user.cart %>
+        <%= link_to "Shopping Cart", cart_path(current_user.cart) %>
+        (<%= current_user.cart.total_quantity %>)
+        <%= number_to_currency(current_user.cart.total_price) %>
+        <% elsif %>
+        <%= link_to "Shopping Cart", carts_path %>
+        <% end %>
+      </p>
+      <p id='search' class='level'>
+        <%= form_tag(search_page_path, :method => "get") do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Search Geeky Exchange" %>
+        <%= button_tag 'Search', :name => nil %>
+        <% end %>
+      </p>
+    </section>
   </section>
-</section>
 
   <div id='main' class="container">
     <p class="notice"><%= notice.html_safe if notice %></p>
