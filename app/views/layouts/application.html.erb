@@ -80,13 +80,13 @@
   </section>
 </section>
 
-  <div class="container">
+  <div id='main' class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 
-  <footer class=' footer level'>
+  <footer class='footer level'>
     <p class='level-item'>
       <% if user_signed_in? && current_user.has_role?(:admin) %>
       <%= link_to 'Add New Product', new_product_path %>
