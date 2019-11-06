@@ -44,7 +44,7 @@ The app will allow users to view all available products, as a list and as indivi
 
 Signed in users are able to create products then are able to view, edit and destroy their products. The creation of a product includes a title, description, price, image, quantity and selection of a category. Users with an admin authorisation when a product is created, a condition of ‘New’ is assigned where as a general user’s product is created with a condition of ‘Pre-Owned’.  An admin is also authorised to edit and destroy general user’s products if deemed inappropriate.  Admin also have the ability to create and destroy categories.
 
-Signed in users can also just purchase without creating any products of their own. The footer includes link adding a new product and view/create categories as an admin. 
+Signed in users can also just purchase without creating any products of their own. The footer is a copyright symbol and the name of the creator as well as year created.
 
 ![sitemap](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/Untitled%20Document.png "Sitemap")
 

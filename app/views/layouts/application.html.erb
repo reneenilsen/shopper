@@ -86,7 +86,11 @@
     <%= yield %>
   </div>
 
-  <footer class='footer level'>
+  <footer id='footer'>
+    <p>&copy Renee Nilsen 2019</p>
+  </footer>
+
+  <!-- <footer id='footer'class='level'>
     <p class='level-item'>
       <% if user_signed_in? && current_user.has_role?(:admin) %>
       <%= link_to 'Add New Product', new_product_path %>
@@ -104,7 +108,7 @@
             <% if user_signed_in? && current_user.has_role?(:admin) %>
             <%= link_to 'View Categories', categories_path %>
             <% end %>
-          </p>
+          </p> -->
 
   </footer>
 
