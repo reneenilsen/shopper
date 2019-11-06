@@ -29,7 +29,7 @@ Features include:
 -	Search products
 -	Shopping cart functionality when signed in with authentication
 -	Stripe check out when signed in with authentication (This 3rd party app is use so Geeky Exchange does not need to record the customers payment details or their shopping address making the app more secure)
--	Images uploaded to Cloudinary
+-	Images uploaded to Cloudinary/If image is not attached, a stock image is uploaded
 -	View within a category/fandom through single view of product
 
 Possible extra features

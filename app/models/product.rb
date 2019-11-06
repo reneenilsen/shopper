@@ -22,5 +22,4 @@ validates :price, presence: true, :numericality => { :greater_than => 0 }
     self.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "no-image-770x466.jpg")), filename: 'logo.png', content_type: "image/jpg")
     end
   end
-
 end

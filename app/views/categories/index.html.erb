@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>All Categories (<%= @categories.count %>)</h1>
-
 <table class='table'>
   <thead>
-    <tr>
-      <th>Category</th>
-    </tr>
+    <th>Category</th>
+    <th>Added By</th>
   </thead>
-
   <tbody>
     <% @categories.each do |item| %>
     <tr>
       <td><%= item.category %></td>
+      <td><%= item.user.email %></td>
       <% if user_signed_in? && current_user.has_role?(:admin) %>
         <td><%= link_to 'Edit', edit_category_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
