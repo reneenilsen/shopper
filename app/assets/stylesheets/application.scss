@@ -39,18 +39,25 @@ body {
     }
   }
 
-  #main {
-    padding-bottom: 2rem;
+  // #main {
+  //   padding-bottom: 2rem;
+  // }
+
+  img {
+    padding: 1rem;
   }
 
   #footer {
     text-align: center;
-    position: fixed;
+    position: relative;
+    height: 50px;
     left: 0;
-    bottom: 0;
+    bottom: -50px;
     width: 100%;
     background-color: rgb(171, 205, 219);
-    padding: 1rem;
+      p {
+        padding-top: 1rem;
+      }
   }
 }
 
