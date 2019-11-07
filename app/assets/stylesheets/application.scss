@@ -40,6 +40,18 @@ body {
     }
   }
 
+  #fandombutton {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+  }
+  
+
   img {
     padding: 1rem;
   }
@@ -83,6 +95,16 @@ body {
 
     form {
       text-align: center;
+    }
+  }
+
+  #fandombutton {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    p, a {
+      font-size: 1rem;
+      padding: 0;
     }
   }
   
