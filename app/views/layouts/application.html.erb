@@ -80,7 +80,13 @@
     </section>
   </section>
 
-  
+  <section class='level'>
+      <p class='level-item'><%= link_to Category.find(2).category, category_path(2) %></p>
+      <p class='level-item'><%= link_to Category.find(3).category, category_path(3) %></p>
+      <p class='level-item'><%= link_to Category.find(4).category, category_path(4) %></p>
+      <p class='level-item'><%= link_to Category.find(7).category, category_path(7) %></p>
+      <p class='level-item'><%= link_to Category.find(8).category, category_path(8) %></p>
+  </section>
 
   <div id='main' class="container">
     <p class="notice"><%= notice.html_safe if notice %></p>

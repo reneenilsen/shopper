@@ -54,6 +54,10 @@
     <% end %>
   </p>
 
+  <p>
+    <strong>Sold By: </strong><%= @product.user.email %>
+  </p>
+
   <section>
       <% if user_signed_in? && @product.can_edit?(current_user) %>
       <div id="button"><%= link_to 'Edit', edit_product_path(@product), class: "button is-warning" %></div>
