@@ -43,7 +43,9 @@
   <p>
     <% if user_signed_in? %>
     <% if @product.quantity >0 %>
+      <% if !@product.can_edit?(current_user) %>
     <div id="button"><%= button_to 'Add To Cart', cart_products_path(product_id: @product), class: 'button is-primary add-to-cart' %></div>
+      <% end %>
     <% elsif %>
     <button class="button is-danger">Sold Out</button>
     <% end %>
