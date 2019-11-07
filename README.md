@@ -28,19 +28,19 @@ Features include:
     * Full CRUD method for categories if an admin 
 -	Search products
 -	Shopping cart functionality when signed in with authentication
--	Stripe check out when signed in with authentication (This 3rd party app is use so Geeky Exchange does not need to record the customers payment details or their shopping address making the app more secure)
+-	Top navigation bar to list products by category/fandom
 -	Images uploaded to Cloudinary/If image is not attached, a stock image is uploaded
 -	View within a category/fandom through single view of product
 
 Possible extra features
 
--	Top navigation bar to list products by category/fandom
+-	Stripe check out when signed in with authentication (This 3rd party app is use so Geeky Exchange does not need to record the customers payment details or their shopping address making the app more secure)
 -	Implement split payments through stripe to assign money to individual sellers
 -	As an admin assign users to admin roles if needed (currently done through rails console)
 -	Buyer reviews on products
 -	Implement product recommendations based on bought before products
 
-The app will allow users to view all available products, as a list and as individual product, view list of products by fandom and use the search feature. The user however will need to log in to use the shopping cart. The cart can be, viewed updated and emptied by the user. Users then can check out their cart and pay by using Stripe as third party payment system. 
+The app will allow users to view all available products, as a list and as individual product, view list of products by fandom and use the search feature as well as the tabs at the top of the page. The user however will need to log in to use the shopping cart. The cart can be, viewed updated and emptied by the user. Users then can check out their cart and pay by using Stripe as third party payment system. 
 
 Signed in users are able to create products then are able to view, edit and destroy their products. The creation of a product includes a title, description, price, image, quantity and selection of a category. Users with an admin authorisation when a product is created, a condition of ‘New’ is assigned where as a general user’s product is created with a condition of ‘Pre-Owned’.  An admin is also authorised to edit and destroy general user’s products if deemed inappropriate.  Admin also have the ability to create and destroy categories.
 
