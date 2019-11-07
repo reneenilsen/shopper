@@ -102,6 +102,11 @@ Red – High / Yellow – Medium / Green – Low / Blue – Optional extras/exte
 
 ## Wireframes
 
+![home page](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/home%20page%20mockup.png "home page")
+![single product view](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/Single%20product%20view%20mockup.png "single product view")
+![shopping cart](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/shopping%20cart%20mockup.png "shopping cart")
+![new product](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/new%20product%20mockup.png "new product")
+
 ## ERD/Provide your database schema design
 
 ![ERD](https://github.com/reneenilsen/shopper/blob/master/app/assets/images/Database%20ER%20Diagram%20(Crow's%20Foot)%20(2).png "ERD")
