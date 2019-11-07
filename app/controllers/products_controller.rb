@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
     # add the current user to the product they have created
     @product.user = current_user
     
+    # if current user is the admin
     if user_signed_in? && current_user.has_role?(:admin) 
       @product.condition = "New"
     elsif
@@ -58,6 +59,7 @@ class ProductsController < ApplicationController
       redirect_to(root_path, alert: "Empty field!") and return  
     else  
       @parameter = params[:search].downcase  
+      # search all products title for the given search params
       @results = Product.all.where("lower(title) LIKE :search", search: "%#{@parameter}%") 
     end 
   end

@@ -12,6 +12,7 @@
       <li>Price: <%= number_to_currency(product.price) %></li>
       <li>Condition: <%= product.condition %></li>
       <li>Quantity: <%= product.quantity %></li>
+      <!-- search Category for current products id then name of the category, direct to the products category with that id -->
       <li>Fandom: <%= link_to Category.find(product.category_id).category, category_path(product.category_id) %></li>
       <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
       <% if user_signed_in? && product.can_edit?(current_user) %>

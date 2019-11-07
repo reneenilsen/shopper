@@ -11,6 +11,7 @@
     <tr>
       <td><%= item.category %></td>
       <td><%= item.user.email %></td>
+      <!-- if current user is the owner of the product or the admin - show the edit and destroy paths -->
       <% if user_signed_in? && current_user.has_role?(:admin) %>
         <td><%= link_to 'Edit', edit_category_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

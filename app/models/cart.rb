@@ -4,9 +4,8 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_products
 
     def add_product(product)    
+      # add current item to cart by the products id
       current_item = self.cart_products.where(product_id: product.id)
-     ########## take 1 from the stock quantity
-     ########## @product(current_item).decrement(:quantity)
 
       if !current_item.empty?
         current_item[0].increment(:quantity).save

@@ -37,6 +37,7 @@ class CartProductsController < ApplicationController
   end
 
   def destroy
+    # find the current users cart id
     @cart = Cart.find(current_user.cart.id)
     @cart_product.destroy
 

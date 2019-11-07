@@ -1,6 +1,7 @@
 <h1 class='title'><%= @category.category %></h1>
 
         <section class='products'>
+          <!-- show the products of the category id that matches the given category id -->
         <% Product.where(category_id: @category.id).each do |product| %>
           <ul class="results">
             <li class=''><%= link_to product.image.attached? ? image_tag(product.image, style: 'height: 200px') : '', product %> </li>

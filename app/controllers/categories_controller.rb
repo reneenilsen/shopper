@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    
+    # if current user is the admin
     if user_signed_in? && current_user.has_role?(:admin) 
     category = Category.new(category_params)
     category.user = current_user
